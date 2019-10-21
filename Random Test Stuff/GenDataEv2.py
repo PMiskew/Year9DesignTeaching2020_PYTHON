@@ -1,7 +1,5 @@
 import random
 
-
-
 def printAvg(list):
 	total = sum(list)
 	avg = total/len(list)
@@ -38,12 +36,9 @@ for i in range(0, generations, 1):
 	populationSeeds.clear() #clear old "survivors"
 	fit.clear() # clear old fit values
 
-	#PROBLEM 1: 
-	# Once population settles no shift. Need mutations
-	#ASSESS FITNESS
 	#Defined as offset from goal
 	for i in range(0,setsize,1):
-		fit.append(abs(list[i] - goal))
+		fit.append(list[i] - goal)
 
 	#PICK MOST FIT
 	for i in range (0,setsize,1):

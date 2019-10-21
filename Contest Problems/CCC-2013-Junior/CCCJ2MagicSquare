@@ -1,0 +1,8 @@
+
+
+def magicSquare():
+
+	list = []
+
+	for i in range(0,16,1):
+		
