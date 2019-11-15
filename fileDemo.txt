@@ -1,0 +1,4 @@
+
+f = file("data.txt","w")
+
+f.close()

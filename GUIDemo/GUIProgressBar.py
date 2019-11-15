@@ -38,5 +38,6 @@ btn2.grid(row = 1, column = 1)
 
 
 
-
+print("Start Program")
 root.mainloop()
+print("End Program")
