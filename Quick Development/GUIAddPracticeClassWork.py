@@ -2,11 +2,19 @@ import tkinter as tk
 import random 
 import os
 
-#Create question log
+#VARIABLES TOP
 
+#Create question log
+#lists num1, num2, correct are considered parallel arrays
+#A parallel array are arrays where indexes relate
+#num1 = [1,2,5]
+#num2 = [5,7,2]
+#correct = ["yes","no","yes"]
+num1 = [3]
+num2 = [4]
 
 #correct incorrect log
-
+correct = []
 
 #files
 
@@ -15,22 +23,21 @@ import os
 nums = [3,4]
 size = 36
 
+
+#FUNCTIONS
 def runMe():
 	print("Running")
 
+
+	#You could put an error check here if the box is 
+	#empty
 	result = int(entry.get())
 
 	if (result == nums[0] + nums[1]):
 		entry.config(bg ="white")
 
 		print("Correct")
-		#Generate two new numbers to display for the next question
-		nums[0] = random.randint(0,10)
-		nums[1] = random.randint(0,10)
-
-		num1Label.config(text = nums[0])
-		num2Label.config(text = nums[1])
-		entry.delete(0, tk.END)
+		correct.append("yes")
 
 		randNum = random.randint(0,4)
 
@@ -42,13 +49,21 @@ def runMe():
 			os.system("say spectacular")
 		else:
 			os.system("say keep going!")
-
 	else:
-		print("ERROR")
-		entry.delete(0, tk.END)
-		entry.config(bg = "red")
+		correct.append("no")
+	#Generate two new numbers to display for the next question
+	nums[0] = random.randint(0,10)
+	nums[1] = random.randint(0,10)
 
+	num1.append(nums[0])
+	num2.append(nums[1])
+	print(num1)
+	print(num2)
+	print(correct)
 
+	num1Label.config(text = nums[0])
+	num2Label.config(text = nums[1])
+	entry.delete(0, tk.END)
 
 
 def say():
@@ -57,7 +72,7 @@ def say():
 	os.system("say "+statement)
 
 
-
+#GUI SETUP
 root = tk.Tk()
 
 num1Label = tk.Label(root, text = str(nums[0]), font = ("Helvetica",size))
