@@ -45,16 +45,16 @@ def pushTheButton():
 
     if entryName.get()=="" or entryName2.get() == "" or entryCard.get()=="" or entryAdress.get()=="" or  entryCVV.get() =="" or entryCity.get()=="" or entryPostal.get() =="" or entryExpirery.get() =="":
     	print("One or more of the boxes empty")
-    	return
+    	return #stops function nothing gets saved
 
-	 
+
     names.append(entryName.get())
-    nameListBox = OptionMenu(root, variable, *names)
+    nameListBox = OptionMenu(root, vName, *names)
     nameListBox.grid(row=1, column=2, sticky="W")
     entryName.delete(0,END)
   
     email.append(entryName2.get())
-    emailListBox = OptionMenu(root, variable, *email)
+    emailListBox = OptionMenu(root, vAddress, *email)
     emailListBox.grid(row=2, column=2, sticky="W")
     entryName2.delete(0,END)
 
@@ -194,12 +194,18 @@ entryExpirery.grid(row = 8, column = 1)
 variable = StringVar(root)
 variable.set("no data") # default value
 
+vName = StringVar(root)
+vName.set("no data") # default value
 
-nameListBox = OptionMenu(root, variable,"no data", *names)
+vAddress = StringVar(root)
+vAddress.set("no data") # default value
+
+
+nameListBox = OptionMenu(root, vName,"no data", *names)
 nameListBox.config(fg="#243c6a")
 nameListBox.grid(row=1, column=2, sticky="W")
 
-emailListBox = OptionMenu(root, variable, "no data",*email)
+emailListBox = OptionMenu(root, vAddress, "no data",*email)
 emailListBox.config(fg="#243c6a")
 emailListBox .grid(row=2, column=2, sticky="W")
 
