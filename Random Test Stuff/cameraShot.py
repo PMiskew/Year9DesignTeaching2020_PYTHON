@@ -15,6 +15,6 @@ while rval:
 	key = cv2.waitKey(20)
 	if key == 27: # exit on ESC
 		break
-	time.sleep(5)  
+	#time.sleep(5)  
 
 cv2.destroyWindow("preview")

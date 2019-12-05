@@ -59,4 +59,8 @@ word = "Paul"
 for letters in word:
 	print (letters)
 
+#Instead Mr. Miskew does this
+for i in range(0,len(word),1):
+	print(word[i])	
+
 

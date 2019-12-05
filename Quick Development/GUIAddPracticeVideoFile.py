@@ -2,6 +2,16 @@ import tkinter as tk
 import random 
 import os
 
+#Create question log
+
+
+#correct incorrect log
+
+
+#files
+
+
+
 nums = [3,4]
 size = 36
 
