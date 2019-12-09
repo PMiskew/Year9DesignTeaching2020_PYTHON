@@ -18,8 +18,16 @@ print(dataList)
 #Big Skill: When finding max or min element in list alaways
 #			set the max/min to an element in the list
 
-
 #Find largest
+max = dataList[0] #always set
+
+for i in range(0, len(dataList),1):
+	if dataList[i] > max:
+		max = dataList[i]
+
+print(max)
+
+
 #Find smallest
 #Find mean, median, mode
 #Remove outliers (inner quartile range)

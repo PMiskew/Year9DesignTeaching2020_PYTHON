@@ -13,7 +13,7 @@ print("DATA ANALYSIS 1")
 #	is based on knowing how it is stored. 
 
 #Big Skill: Reading from text file.
-data = open("dataAnalysis1.txt"); 
+data = open("dataAnalysis1.txt","r"); 
 dataString = data.read()
 dataList = dataString.split("\n")
 
