@@ -42,30 +42,47 @@ file = open("data1.txt");  #link to file
 #		will take a long time.  Some very smart programmers designed sets, you are
 #		not going to be more efficent.
 #
-# 4.	
+# 4.	A comment on the replace function
+#		
+#		You can collapse a string using the replace function and an empty string
+#
+#		"happy.day".replace(".","") --> happyday
+#
+#		Replacing "." in Python, no problem!
+#		Replacing "." in Java, WATCH OUT!
+#
+#		With Java for some technical reasons certain characters have issues when
+#		being replaced.  THe "." is one of them.  In Java to do this the below line
+#		is used
+#
+#		"happy.day".replace("\\.","") --> happyday
+#
+#		
+#		
 #
 #
 
-for i in range(0, 10, 1):
 
-	x = file.readline();
-	front = ""
-	emailset = set([]) 
+for i in range(0, 10, 1): #THe problem states 10 data sets per file
 
-	for j in range(0,int(x),1):
+	x = file.readline(); #read a line this line will only run when the data is a number representing number of emails in trial
+	
+	emailset = set([])  #creates/resets set to store emails for each data set
 
-		temp = file.readline().lower()
+	for j in range(0,int(x),1): #loops through each email in data set
 
+		temp = file.readline().lower() #read line and make lower case
+		front = "" #create variable to use, MUST DECLARE OUTSIDE TRY or scope issues 
 		try:
-			front = temp[0:temp.index("+")] + temp[temp.index("@") + 1]
+			front = temp[0:temp.index("+")] + temp[temp.index("@") + 1] #assumes + in line and trys to process if fails jumps to except
 		except: 
-			front = temp[0:temp.index("@")] + temp[temp.index("@") + 1]
+			front = temp[0:temp.index("@")] + temp[temp.index("@") + 1] #if try fails this runs to account for case with no +
 
-		front = front.replace(".","")
-		emailset.add(front)
+		front = front.replace(".","") #Collapse String: replaces all . with empty string
+		emailset.add(front) #adds email to set, only added if unique, which is the nature of sets. 
 
 
-	print(len(emailset))
+	print(len(emailset)) #the size of the set is the solution to each data set
 
 
 
