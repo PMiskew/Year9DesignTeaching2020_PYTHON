@@ -61,8 +61,6 @@ file = open("data1.txt");  #link to file
 #		
 #
 #
-
-
 for i in range(0, 10, 1): #THe problem states 10 data sets per file
 
 	x = file.readline(); #read a line this line will only run when the data is a number representing number of emails in trial
