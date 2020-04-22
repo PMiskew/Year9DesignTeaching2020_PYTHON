@@ -14,16 +14,14 @@ def motion(event):
 
 def background_task():
 
-	xpos = 0
-	ypos = 0
-
+	xpos = 20
+	ypos = 200
 	while True:
 		canvas.create_oval(xpos,ypos,xpos+20,ypos+20,fill = "black")
-		sleep(0.1)
+		
 		canvas.create_oval(xpos,ypos,xpos+20,ypos+20,fill = "white")
-		sleep(0.1)
-		xpos = xpos + 5;
-		ypos = ypos + 5;
+		
+		
 		
 
 
@@ -76,10 +74,13 @@ for i in range(0,40,3):
 
 canvas.bind('<Motion>',motion) #bind a mouse motion listener
 
+block_pos = canvas.coords(block.id)
+console.log(blockpos);
+
 #Creates Thread
 #What is a thread?
-t = threading.Thread(target=background_task)
-t.start() #starts thread
+#t = threading.Thread(target=background_task)
+#t.start() #starts thread
 
 
 root.protocol("WM_DELETE_WINDOW", on_closing)
