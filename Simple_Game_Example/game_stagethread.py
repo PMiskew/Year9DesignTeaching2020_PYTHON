@@ -1,12 +1,39 @@
 import tkinter as tk
 import tkinter.font as tkFont
+import threading
+from tkinter import messagebox
+from time import sleep
 
+print("STAGE 2")
 
 #Binding Source Link
 #https://www.python-course.eu/tkinter_events_binds.php
 def motion(event):
   print("Mouse position: (%s %s)" % (event.x, event.y))
   return
+
+def background_task():
+
+	xpos = 0
+	ypos = 0
+
+	while True:
+		canvas.create_oval(xpos,ypos,xpos+20,ypos+20,fill = "black")
+		sleep(0.1)
+		canvas.create_oval(xpos,ypos,xpos+20,ypos+20,fill = "white")
+		sleep(0.1)
+		xpos = xpos + 5;
+		ypos = ypos + 5;
+		
+
+
+
+
+def on_closing():
+	if messagebox.askokcancel("Quit", "Do you want to quit?"):
+		root.destroy()
+
+
 
 root = tk.Tk()
 
@@ -49,7 +76,13 @@ for i in range(0,40,3):
 
 canvas.bind('<Motion>',motion) #bind a mouse motion listener
 
+#Creates Thread
+#What is a thread?
+t = threading.Thread(target=background_task)
+t.start() #starts thread
 
+
+root.protocol("WM_DELETE_WINDOW", on_closing)
 root.mainloop();
 
 
