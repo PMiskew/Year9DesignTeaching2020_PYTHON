@@ -12,16 +12,31 @@
 <canvas id="myCanvas" width="300" height="300" style="border:1px solid #000000;">
 </canvas>
 
+<canvas id="myCanvas1" width="300" height="300" style="border:1px solid #000000;">
+</canvas>
+
 <!-- 
 	https://www.w3schools.com/graphics/canvas_drawing.asp
 -->
 
 <script>
-	var canvas = document.getElementById("myCanvas");
-	var ctx = canvas.getContext("2d");
+	var canvas = document.getElementById("myCanvas"); //acess the canvas
+	var ctx = canvas.getContext("2d"); //get context
 	ctx.fillStyle = "#FF0000";
 	//See the difference between python and web-dev?
 	ctx.fillRect(132,110,41,50);
+	ctx.fillStyle = "#ABC123";
+	ctx.fillRect(0,0,50,100);
+	ctx.strokeRect(100, 100, 200, 200)
+
+	
+    ctx.beginPath();
+    ctx.moveTo(75, 50);
+    ctx.lineTo(100, 75);
+    ctx.lineTo(100, 25);
+    ctx.fill();
+
+
 </script>
 </body>
 </html>
