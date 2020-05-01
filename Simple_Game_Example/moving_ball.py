@@ -17,7 +17,7 @@ canvas = Canvas(root, width = 300, height = 300)
 canvas.pack()
 
 ball1 = canvas.create_oval(10, 10, 20, 20, fill="red")
-
+wall = canvas.create_rectangle(3,3,300,300)
 
 root.after(500, move_ball)
 root.mainloop()

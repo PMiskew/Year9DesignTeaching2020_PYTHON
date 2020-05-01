@@ -1,5 +1,5 @@
 from tkinter import * #you don't need the tk.
-
+import math
 
 '''
 Shapely Documentation
@@ -16,11 +16,40 @@ from random import randint
 #There is a much better way to do this, but is more involved from a coding persepective
 
 ball1data = [-1,2]
+destination = [150,150]
+
+
+def calc_dir():
+
+	b1 = canvas.coords(ball1) #access coordinates of object on screen. 
+	b1x1 = b1[0]
+	b1y1 = b1[1]
+	b1x2 = b1[2]
+	b1y2 = b1[3]
+	b1cx = (b1x1 + b1x2) / 2
+	b1cy = (b1y1 + b1y2) / 2
+	b1r = (b1y2 - b1y1)/2 #exact
+
+
+
+	#Find slope from ball center to desination
+	run = destination[0] -  b1cx;
+
+	rise = b1cy - destination[1];
+	
+
+	factor = math.gcd(int(ball1data[0]),int(ball1data[1]))
+	ball1data[0] = run/factor
+	ball1data[1] = rise/factor
+	print(ball1data)
+
 
 def move_ball():
 
+	
 	canvas.move(ball1, ball1data[0], ball1data[1])
 	#canvas.move(ball2, ball2data[0], ball2data[1])
+
 
 	b1 = canvas.coords(ball1)
 	bx1 = b1[0]
@@ -42,7 +71,8 @@ def move_ball():
 	root.after(10,move_ball)
 
 def move(event):
-	print("MOVE")
+
+	#print("MOVE")
 	b1 = canvas.coords(ball1)
 	bx1 = b1[0]
 	by1 = b1[1]
@@ -50,6 +80,7 @@ def move(event):
 	by2 = b1[3]
 
 def click(event):
+	calc_dir()
 	print("CLICK")
 	b1 = canvas.coords(ball1)
 	bx1 = b1[0]
@@ -69,7 +100,7 @@ canvas.pack()
 # 1. I have to set up a timed interval to run a function
 # 2. I have to tell the ball to move
 ball1 = canvas.create_oval(50, 50, 60, 60, fill="red")
-wall = canvas.create_rectangle(3,3,300,300)
+wall = canvas.create_rectangle(4,4,300,300)
 print(ball1)
 
 
