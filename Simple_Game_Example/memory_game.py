@@ -10,6 +10,7 @@ This is a text based memory game
 
 board = ["one","one","two","two","three","three","four","four"]
 display_board = ["?","?","?","?","?","?","?","?"]
+guesses = 0
 ################################################################
 #Scramble Board
 #
@@ -40,8 +41,15 @@ for i in range(0, shuffle_length,1):
 #	the elements get replaces with X values.  When the entire board is X values it exits.  
 #	
 
-while (True):
-	
+while ("?" in display_board):
+
+	print("")
+	print("")
+	#####################################################################
+	#
+	#	DISPLAY BOARD
+	#
+	#####################################################################	
 	board_display_line1 = ""
 	board_display_line2 = ""
 
@@ -54,8 +62,26 @@ while (True):
 	print(board_display_line1)
 	print(board_display_line2)
 
-	guess1 = input("Flip 1: ")
 
+
+	#####################################################################
+	#
+	# TAKE INPUT 1
+	#
+	#####################################################################
+	print("")
+	print("")
+	guess1 = int(input("Flip 1: "))
+	print("")
+	print("")
+	
+	#####################################################################
+	#
+	#	DISPLAY BOARD
+	#
+	#	WHEN THE BOARD IS DISPLAYED GUESS1 IS SHOWN
+	#
+	#####################################################################	
 	board_display_line1 = ""
 	board_display_line2 = ""
 
@@ -71,13 +97,54 @@ while (True):
 	print(board_display_line1)
 	print(board_display_line2)
 
+	#####################################################################
+	#
+	# TAKE INPUT 2
+	#
+	#####################################################################
+	print("")
+	print("")
+	guess2 = int(input("Flip 2: "))
+	print("")
+	print("")
+	
+	#####################################################################
+	#
+	#	DISPLAY BOARD
+	#
+	#	WHEN THE BOARD IS DISPLAYED GUESS1 AND GUESS 2 IS SHOWN
+	#
+	#####################################################################
+	board_display_line1 = ""
+	board_display_line2 = ""
 
-	guess2 = input("Flip 2: ")
+	for i in range(0, len(board), 1):
+	
+		board_display_line1 = board_display_line1 + "\t"+str(i)
+		
+		if i == guess1 or i == guess2:
+			board_display_line2 = board_display_line2 + "\t"+str(board[i])
+		else:
+			board_display_line2 = board_display_line2 + "\t"+str(display_board[i])
+	
+	print(board_display_line1)
+	print(board_display_line2)
+	print("")
+	print("")
+	if (board[guess1] == board[guess2]):
+		print("***************************MATCH***************************")
+		display_board[guess1] = ' '
+		display_board[guess2] = ' '
+	else:
+		print("************************NO MATCH***************************")
+	print("")
+	print("")
+	guesses = guesses + 1
+	input("Press Enter to continue...")
 
-
-
-
-
-
-
-
+print("")
+print("")
+print("THANKS FOR PLAYING!")
+print("It took you",guesses,"to get all the matches")
+print("")
+print("")
