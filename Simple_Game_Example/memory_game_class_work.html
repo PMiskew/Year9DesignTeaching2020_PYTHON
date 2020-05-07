@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--
+		IF YOU HAVE JUST ARRIVED AND ARE PLANNING ON FOLLOWING ALONG MAKE THIS FILE
+	-->
+
+	<title>Memory Game</title>
+</head>
+<body>
+
+	<p id = "a"></p>
+	<p id = "b"></p>
+
+
+	<script>
+
+		//Set Board data structure
+		board = ["one","one","two","two","three","three","four","four"]
+
+		//Randomize the board
+		for (i = 0; i < 100; i = i + 1) {
+			
+
+			//swap the values at the indexes. 
+		}
+		console.log(board)
+
+		/*
+		//This is an infite loop
+		while (true) {
+			//Each guess is going to be a valid index from board
+			 a = prompt("Option 1: ");
+			 a = parseInt(a);
+			 b = prompt("Option 2: ");
+			 b = parseInt(b);
+
+			//Check does board[a] == board[b] this measns we have a match
+			 if (board[a] === board[b]) {
+			 	alert("MATCH!")
+			 }
+			 else {
+			 	alert("NO MATCH")
+			 }
+		}
+
+		*/
+
+		function getRndInteger(min, max) {
+ 			return Math.floor(Math.random() * (max - min) ) + min;
+		}
+
+	</script>
+
+</body>
+</html>
