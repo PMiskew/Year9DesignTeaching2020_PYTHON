@@ -9,15 +9,17 @@
 </head>
 <body>
 
-	<p id = "a"></p>
-	<p id = "b"></p>
+	<p id = "display"></p>
+	<p id = "guesses"></p>
+		
 
 
 	<script>
 
 		//Set Board data structure
 		board = ["one","one","two","two","three","three","four","four"]
-
+		display_board = ["?","?","?","?","?","?","?","?"]
+		guesses = 0
 		//Randomize the board
 		for (i = 0; i < 100; i = i + 1) {
 			//generate two random index values
@@ -31,25 +33,40 @@
 		}
 		console.log(board)
 
-		/*
-		//This is an infite loop
-		while (true) {
+		
+		while (display_board.includes("?")) {
 			//Each guess is going to be a valid index from board
-			 a = prompt("Option 1: ");
-			 a = parseInt(a);
-			 b = prompt("Option 2: ");
-			 b = parseInt(b);
+			guess1 = prompt(display_board+"\nGuess 1");
+			guess1 = parseInt(guess1);
+			 
+			display_board[guess1] = board[guess1];
+			
+
+			guess2 = prompt(display_board+"\nGuess 2");
+			guess2 = parseInt(guess2);
+
+			display_board[guess2] = board[guess2];
+			alert(display_board)
+
 
 			//Check does board[a] == board[b] this measns we have a match
-			 if (board[a] === board[b]) {
+			 if (board[guess1] === board[guess2]) {
 			 	alert("MATCH!")
+			 	display_board[guess1] = 'X'
+			 	display_board[guess2] = 'X'
 			 }
 			 else {
 			 	alert("NO MATCH")
+			 	display_board[guess1] = '?'
+			 	display_board[guess2] = '?'
 			 }
+			 guesses = guesses + 1
 		}
 
-		*/
+		document.getElementById("display").innerHTML = "THANKS FOR PLAYING!";
+		document.getElementById("guesses").innerHTML = "It took you "+guesses+" guesses";
+
+		
 
 		function getRndInteger(min, max) {
  			return Math.floor(Math.random() * (max - min) ) + min;
