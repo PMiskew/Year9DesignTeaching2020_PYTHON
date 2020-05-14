@@ -5,6 +5,9 @@ class Project_3:
 
 	def __init__(self, master):
 
+		#Fields
+
+		#Setup GUI
 		self.master = master
 		master.title("Project 3 - Class Structure")
 
