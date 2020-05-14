@@ -22,17 +22,18 @@
 		guesses = 0
 		
 		//Randomize the board
-		for (i = 0; i < 100; i = i + 1) {
-			//generate two random index values
-			r1 = getRndInteger(0,8)
-			temp = board[r1]
-			r2 = getRndInteger(0,8)
-			board[r1] = board[r2]
-			board[r2] = temp
+		randomizeBoard()
 
-			//swap the values at the indexes. 
-		}
 		console.log(board)
+
+		/*
+			- html elements? modelling it as a data and now I ahve to translate it to html
+			- What do you mean by points - 
+				Question: 2 play better?
+			-How can I keep track of time.
+			-add some noises
+			-Include some error checking on the inputs. 
+		*/
 
 		
 		while (display_board.includes("?")) {
@@ -40,13 +41,13 @@
 			guess1 = prompt(display_board+"\nGuess 1");
 			guess1 = parseInt(guess1);
 			 
-			display_board[guess1] = board[guess1];
+			display_board[guess1] = board[guess1]; //flipping first card
 			
 
 			guess2 = prompt(display_board+"\nGuess 2");
 			guess2 = parseInt(guess2);
 
-			display_board[guess2] = board[guess2];
+			display_board[guess2] = board[guess2]; //flipping second card
 			alert(display_board)
 
 
@@ -62,6 +63,7 @@
 			 	display_board[guess2] = '?'
 			 }
 			 guesses = guesses + 1
+
 		}
 
 		document.getElementById("display").innerHTML = "THANKS FOR PLAYING!";
@@ -72,6 +74,20 @@
 		function getRndInteger(min, max) {
  			return Math.floor(Math.random() * (max - min) ) + min;
 		}
+
+		function randomizeBoard() {
+
+			for (i = 0; i < 100; i = i + 1) {
+				//generate two random index values
+				r1 = getRndInteger(0,8)
+				temp = board[r1]
+				r2 = getRndInteger(0,8)
+				board[r1] = board[r2]
+				board[r2] = temp
+			}
+			//swap the values at the indexes. 
+		}
+		
 
 	</script>
 
