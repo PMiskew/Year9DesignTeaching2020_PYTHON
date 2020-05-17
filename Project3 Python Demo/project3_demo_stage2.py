@@ -7,14 +7,21 @@
 #
 
 import tkinter as tk
-print("STAGE 1 - PROJECT 3")
+print("STAGE 2 - PROJECT 3")
 #Variables - Data 
 #all you data must be lists or reference.
 
 
 
 #Funcitons 
+def check_login():
+	print("Login Pressed")
+	frame.pack_forget()
+	frameMainScreen.pack()
 
+def log_out():
+	frameMainScreen.pack_forget()
+	frame.pack()
 
 #Set up our GUI
 root = tk.Tk() #Construtor - A capitalized method is always a constructor
@@ -29,7 +36,7 @@ lab3 = tk.Label(frame, text = "Enter Access Code", bg = "#4E4187", fg = "#7DDE92
 text1 = tk.Text(frame, width = 30, height = 1, borderwidth = 2, relief= tk.GROOVE, fg = "#7DDE92")
 text2 = tk.Text(frame, width = 30, height = 1, borderwidth = 2, relief= tk.GROOVE, fg = "#7DDE92")
 text3 = tk.Text(frame, width = 30, height = 1, borderwidth = 2, relief= tk.GROOVE, fg = "#7DDE92")
-btn = tk.Button(frame, text = "LOGIN")
+btn = tk.Button(frame, text = "LOGIN", command = check_login)
 
 #add it to the window
 lab1.grid(row = 0, column = 0, sticky = "NESW")
@@ -44,6 +51,9 @@ btn.grid(row = 3, column = 1, sticky = "NESW")
 frame.pack()
 
 
+frameMainScreen = tk.Frame(root, width = 200, height = 200)
+ms_btn = tk.Button(frameMainScreen, text="Log Out", command=log_out)
+ms_btn.pack()
 
 print("begin game")
 root.mainloop()
