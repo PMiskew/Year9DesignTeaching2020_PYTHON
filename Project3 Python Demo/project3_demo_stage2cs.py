@@ -10,12 +10,13 @@
 #	
 import tkinter as tk
 
-class Login():
+class App():
 
 	def __init__(self):
 		
 		self.root = tk.Tk() #Construtor - A capitalized method is always a constructor
-
+		self.root.config(bg = "#4E4187" )
+		self.root.geometry("500x500")
 
 		self.frame = tk.Frame(self.root, padx = 20, pady = 20, bg = "#4E4187", relief = tk.SUNKEN)
 		#Construct the objects/widget
@@ -26,7 +27,7 @@ class Login():
 		self.text1 = tk.Text(self.frame, width = 30, height = 1, borderwidth = 2, relief= tk.GROOVE, fg = "#7DDE92")
 		self.text2 = tk.Text(self.frame, width = 30, height = 1, borderwidth = 2, relief= tk.GROOVE, fg = "#7DDE92")
 		self.text3 = tk.Text(self.frame, width = 30, height = 1, borderwidth = 2, relief= tk.GROOVE, fg = "#7DDE92")
-		self.btn4 = tk.Button(self.frame, text = "LOGIN")
+		self.btn = tk.Button(self.frame, text = "LOGIN", command = lambda: self.check_login())
 
 		#add it to the window
 		self.lab1.grid(row = 0, column = 0, sticky = "NESW")
@@ -37,9 +38,27 @@ class Login():
 		self.text2.grid(row = 1, column = 1, columnspan = 2, sticky = "NESW")
 		self.text3.grid(row = 2, column = 1, columnspan = 2, sticky = "NESW")
 
-		self.btn4.grid(row = 3, column = 1, sticky = "NESW")
+		self.btn.grid(row = 3, column = 1, sticky = "NESW")
 		self.frame.pack()
 
+		self.frameMainScreen = tk.Frame(self.root, width = 200, height = 200)
+		
+
+		self.ms_btn = tk.Button(self.frameMainScreen, text="Log Out", command= lambda: self.log_out())
+		self.ms_btn.pack()
+		
 		self.root.mainloop()
 
-l = Login()
+	def log_out(self):
+		print("Log out")
+		self.frameMainScreen.pack_forget()
+		self.frame.pack()
+		
+
+	def check_login(self):
+		#print("Login Pressed")
+
+		self.frame.pack_forget()
+		self.frameMainScreen.pack()
+
+l = App()
