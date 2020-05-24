@@ -41,4 +41,3 @@ class App():
 	#Method - Behaviours
 
 a = App() #Create an app object and store the reference in a
-b = App()

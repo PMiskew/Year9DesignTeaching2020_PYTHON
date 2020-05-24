@@ -40,6 +40,15 @@ class App():
 		self.btn.grid(row = 3, column = 1, sticky = "NESW")
 		self.frame.pack()
 
-		self.root.mainloop()
+		#self.root.mainloop()
+
+	def doSomething(self):
+		print("DOING")
+
+
+
 
 l = App()
+
+
+
